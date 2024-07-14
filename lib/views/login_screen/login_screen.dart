@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gym_fyp/utils/images/images.dart';
-import 'package:gym_fyp/views/home_screen/home_screen.dart';
+import 'package:gym_fyp/views/navigation_bar/navigation_bar_screen.dart';
 import 'package:gym_fyp/views/signup_screen/signup_screen.dart';
 import 'package:gym_fyp/widgets/custom_textfield/custom_textfield.dart';
 
@@ -57,7 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const HomeScreen()));
+                          builder: (context) =>const   NavigationBarScreen()));
                 },
                 child: Container(
                   width: size.width * 0.3,

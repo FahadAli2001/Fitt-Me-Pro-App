@@ -11,7 +11,7 @@ class BackExcersices extends StatefulWidget {
 class _BackExcersicesState extends State<BackExcersices> {
   @override
   Widget build(BuildContext context) {
-       Size size = MediaQuery.sizeOf(context);
+    Size size = MediaQuery.sizeOf(context);
     return Scaffold(
       appBar: AppBar(
         leading: GestureDetector(

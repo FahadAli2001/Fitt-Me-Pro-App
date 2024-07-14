@@ -27,6 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.sizeOf(context);
     return Scaffold(
+      
       body: SizedBox(
         width: size.width,
         height: size.height,
@@ -34,6 +35,10 @@ class _HomeScreenState extends State<HomeScreen> {
           alignment: Alignment.center,
           children: [
             Positioned(top: 0, child: Image.asset(topBg)),
+          const  Positioned(
+              right: 25,
+              top: 50,
+              child:  Icon(Icons.logout,color: Colors.white,)),
             Positioned(
               top: size.height * 0.1,
               child: SizedBox(

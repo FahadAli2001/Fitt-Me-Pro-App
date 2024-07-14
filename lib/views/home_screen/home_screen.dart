@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:gym_fyp/views/arms_screen/arms_screen.dart';
+import 'package:gym_fyp/views/back_screen/back_screen.dart';
 import 'package:gym_fyp/views/chest_screen/chest_screen.dart';
 import 'package:gym_fyp/views/shoulder_screen/shoulder_screen.dart';
 
@@ -59,6 +60,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           }else if(index==3){
                             Navigator.push(context, MaterialPageRoute(builder: (context)
                             =>const ShoulderScreen()));
+                          }else if(index == 4){
+                             Navigator.push(context, MaterialPageRoute(builder: (context)
+                            =>const BackExcersices()));
                           }
                         },
                         child: SizedBox(

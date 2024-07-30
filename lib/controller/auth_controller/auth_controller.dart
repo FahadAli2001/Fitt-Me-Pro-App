@@ -4,8 +4,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:gym_fyp/views/home_screen/home_screen.dart';
 import 'package:gym_fyp/views/login_screen/login_screen.dart';
+
+import '../../views/navigation_bar/navigation_bar_screen.dart';
 
 class AuthController extends ChangeNotifier {
   final TextEditingController emailControllerSignUp = TextEditingController();
@@ -55,7 +56,7 @@ class AuthController extends ChangeNotifier {
       await _auth.signInWithEmailAndPassword(email: emailControllerSignIn.text, password: passwordControllerSignIn.text);
         Navigator.pushAndRemoveUntil(
           context,
-          MaterialPageRoute(builder: (context) => const HomeScreen()),
+          MaterialPageRoute(builder: (context) => const NavigationBarScreen()),
           (Route<dynamic> route) => false,
         );
       notifyListeners();

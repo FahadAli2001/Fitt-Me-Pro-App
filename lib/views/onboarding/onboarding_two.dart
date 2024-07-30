@@ -1,8 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gym_fyp/utils/images/images.dart';
-import 'package:gym_fyp/views/home_screen/home_screen.dart';
 import 'package:gym_fyp/views/login_screen/login_screen.dart';
+
+import '../navigation_bar/navigation_bar_screen.dart';
 
 class OnboardingTwoScreen extends StatefulWidget {
   const OnboardingTwoScreen({super.key});
@@ -45,7 +46,7 @@ class _OnboardingTwoScreenState extends State<OnboardingTwoScreen> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const HomeScreen()));
+                            builder: (context) => const NavigationBarScreen()));
                   } else {
                     Navigator.push(
                         context,

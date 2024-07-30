@@ -56,14 +56,14 @@ class _BmiScreenState extends State<BmiScreen> {
                                         onTap: () {
                                           value.isMale = true;
                                         },
-                                        child: const Card(
+                                        child:   Card(
                                           elevation: 10,
-                                          color: Colors.black,
-                                          child: Center(
+                                          color:value.isMale== true ? Colors.black : Colors.transparent,
+                                          child:  Center(
                                             child: Text(
                                               "MALE",
                                               style: TextStyle(
-                                                  color: Colors.white,
+                                                  color:value.isMale == true? Colors.white : Colors.black,
                                                   fontWeight: FontWeight.bold),
                                             ),
                                           ),
@@ -79,14 +79,14 @@ class _BmiScreenState extends State<BmiScreen> {
                                         onTap: () {
                                           value.isMale = false;
                                         },
-                                        child: const Card(
+                                        child:   Card(
                                           elevation: 10,
-                                          color: Colors.black,
+                                          color:value.isMale == false ? Colors.black :Colors.transparent ,
                                           child: Center(
                                             child: Text(
                                               "FEMALE",
                                               style: TextStyle(
-                                                  color: Colors.white,
+                                                  color:value.isMale == false ?  Colors.white :Colors.black,
                                                   fontWeight: FontWeight.bold),
                                             ),
                                           ),
@@ -178,7 +178,7 @@ class _BmiScreenState extends State<BmiScreen> {
                                     width: size.width,
                                     child: GestureDetector(
                                       onTap: () {
-                                         
+                                         value.calculateWight();
                                       },
                                       child: const Card(
                                         elevation: 10,

@@ -1,9 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gym_fyp/utils/images/images.dart';
 import 'package:gym_fyp/views/login_screen/login_screen.dart';
 
-import '../navigation_bar/navigation_bar_screen.dart';
 
 class OnboardingTwoScreen extends StatefulWidget {
   const OnboardingTwoScreen({super.key});
@@ -13,7 +11,7 @@ class OnboardingTwoScreen extends StatefulWidget {
 }
 
 class _OnboardingTwoScreenState extends State<OnboardingTwoScreen> {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+   
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.sizeOf(context);
@@ -42,17 +40,11 @@ class _OnboardingTwoScreenState extends State<OnboardingTwoScreen> {
               right: size.width * 0.3,
               child: GestureDetector(
                 onTap: () {
-                  if (_auth.currentUser != null) {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const NavigationBarScreen()));
-                  } else {
-                    Navigator.push(
+                   Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => const LoginScreen()));
-                  }
+                  
                 },
                 child: Container(
                   width: size.width * 0.3,

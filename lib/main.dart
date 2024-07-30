@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Fitt Me Pro',
+        title: 'Fit Me Pro',
         theme: ThemeData(
           primaryColor: Colors.black,
          

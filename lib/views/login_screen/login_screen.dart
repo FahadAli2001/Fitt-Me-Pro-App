@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:gym_fyp/controller/auth_controller/auth_controller.dart';
 import 'package:gym_fyp/utils/images/images.dart';
-import 'package:gym_fyp/views/navigation_bar/navigation_bar_screen.dart';
 import 'package:gym_fyp/views/signup_screen/signup_screen.dart';
 import 'package:gym_fyp/widgets/custom_textfield/custom_textfield.dart';
+import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -16,7 +17,9 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.sizeOf(context);
     return Scaffold(
-      body: SizedBox(
+      body:
+       Consumer<AuthController>(builder:(context, value, child) {
+         return SizedBox(
         width: size.width,
         height: size.height,
         child: Stack(
@@ -32,18 +35,20 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             Positioned(
               top: size.height * 0.45,
-              child: const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
+              child:   Padding(
+                padding:const EdgeInsets.symmetric(horizontal: 20),
                 child: CustomTextField(
+                  controller: value.emailControllerSignIn,
                   hintText: "Email",
                 ),
               ),
             ),
             Positioned(
               top: size.height * 0.55,
-              child: const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
+              child:   Padding(
+                padding:const EdgeInsets.symmetric(horizontal: 20),
                 child: CustomTextField(
+                  controller: value.passwordControllerSignIn,
                   hintText: "Password",
                 ),
               ),
@@ -54,10 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
               right: size.width * 0.3,
               child: GestureDetector(
                 onTap: () {
-                Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>const   NavigationBarScreen()));
+                  value.loginWithEmailPassword(context);
                 },
                 child: Container(
                   width: size.width * 0.3,
@@ -95,7 +97,11 @@ class _LoginScreenState extends State<LoginScreen> {
             )
           ],
         ),
-      ),
+      );
+   
+   
+   
+       },)
     );
   }
 }

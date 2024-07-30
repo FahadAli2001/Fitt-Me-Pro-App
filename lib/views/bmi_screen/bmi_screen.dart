@@ -168,10 +168,11 @@ class _BmiScreenState extends State<BmiScreen> {
                                       ),
                                     ),
                                   ),
-                                 const Spacer(),
+                                 
                                  
                                 ],
                               ),
+                             const Spacer(),
                                SizedBox(
                                     height: 70,
                                     width: size.width,
@@ -192,7 +193,23 @@ class _BmiScreenState extends State<BmiScreen> {
                                         ),
                                       ),
                                     ),
-                                  )
+                                  ),
+                               const   SizedBox(height: 20,),
+                                  GestureDetector(
+                                    onTap: () {
+                                      value.heightController.clear();
+                                      value.isMale = true;
+                                      value.weight = '';
+                                    },
+                                    child:const Text(
+                                              "Clear",
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                  ),
+
+                                           const   SizedBox(height: 20,),
                             ],
                           ),
                         ),

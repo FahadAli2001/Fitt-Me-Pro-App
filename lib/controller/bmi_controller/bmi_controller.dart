@@ -15,6 +15,12 @@ class BmiController extends ChangeNotifier {
     notifyListeners();
   }
 
+  set weight(value) {
+    _weight = value;
+
+    notifyListeners();
+  }
+
   void calculateWight() {
     String height = heightController.text;
     if (height == "4.6") {

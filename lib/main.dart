@@ -1,10 +1,18 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:gym_fyp/controller/bmi_controller/bmi_controller.dart';
+import 'package:gym_fyp/firebase_options.dart';
 import 'package:gym_fyp/views/splash_screen/splash_screen.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+import 'controller/auth_controller/auth_controller.dart';
+
+void main()async {
   runApp(const MyApp());
+   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
 }
 
 class MyApp extends StatelessWidget {
@@ -15,7 +23,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_)=>BmiController())
+        ChangeNotifierProvider(create: (_)=>BmiController()),
+        ChangeNotifierProvider(create: (_)=>AuthController())
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

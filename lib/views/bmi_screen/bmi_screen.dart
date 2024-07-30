@@ -33,101 +33,172 @@ class _BmiScreenState extends State<BmiScreen> {
             Positioned(bottom: 0, child: Image.asset(bottomBg)),
             Center(
               child: SizedBox(
-                height: size.height * 0.7,
-                width: size.width * 0.8,
-                child:
-              Consumer<BmiController>(builder:(context, value, child) {
-                return    Card(
-                  shape: RoundedRectangleBorder(
-                      side: const BorderSide(color: Colors.black),
-                      borderRadius: BorderRadius.circular(25)),
-                  elevation: 10,
-                  child: Padding(
-                    padding: const EdgeInsets.all(15),
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            Expanded(
-                              flex: 1,
-                              child: SizedBox(
-                                height: 70,
-                                child: GestureDetector(
-                                  onTap: () {
-                                    value.isMale = true;
-                                  },
-                                  child: const Card(
-                                    elevation: 10,
-                                    color: Colors.black,
-                                    child: Center(
-                                      child: Text(
-                                        "MALE",
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold),
+                  height: size.height * 0.7,
+                  width: size.width * 0.8,
+                  child: Consumer<BmiController>(
+                    builder: (context, value, child) {
+                      return Card(
+                        shape: RoundedRectangleBorder(
+                            side: const BorderSide(color: Colors.black),
+                            borderRadius: BorderRadius.circular(25)),
+                        elevation: 10,
+                        child: Padding(
+                          padding: const EdgeInsets.all(15),
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Expanded(
+                                    flex: 1,
+                                    child: SizedBox(
+                                      height: 70,
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          value.isMale = true;
+                                        },
+                                        child: const Card(
+                                          elevation: 10,
+                                          color: Colors.black,
+                                          child: Center(
+                                            child: Text(
+                                              "MALE",
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              flex: 1,
-                              child: SizedBox(
-                                height: 70,
-                                child: GestureDetector(
-                                  onTap: () {
-                                    value.isMale = false;
-                                  },
-                                  child: const Card(
-                                    elevation: 10,
-                                    color: Colors.black,
-                                    child: Center(
-                                      child: Text(
-                                        "FEMALE",
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold),
+                                  Expanded(
+                                    flex: 1,
+                                    child: SizedBox(
+                                      height: 70,
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          value.isMale = false;
+                                        },
+                                        child: const Card(
+                                          elevation: 10,
+                                          color: Colors.black,
+                                          child: Center(
+                                            child: Text(
+                                              "FEMALE",
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                          ),
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ),
+                                  )
+                                ],
                               ),
-                            )
-                          ],
-                        ),
-                       const SizedBox(height: 40,),
-                       Row(
-                        children: [
-                         const Text("Height : ",style: TextStyle(color: Colors.black,
-                          fontWeight: FontWeight.bold,fontSize: 18),),
-                            Expanded(
-                              flex: 2,
-                              child: SizedBox(
-                                height: 70,
-                                child: Card(
+                              const SizedBox(
+                                height: 40,
+                              ),
+                              Row(
+                                children: [
+                                  const Text(
+                                    "Height : ",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18),
+                                  ),
+                                  Expanded(
+                                    flex: 2,
+                                    child: SizedBox(
+                                      height: 70,
+                                      child: Card(
                                         elevation: 10,
                                         color: Colors.black,
                                         child: Center(
-                                          child: TextField(
-                                            controller: value.heightController,
-                                            decoration: InputDecoration(
-                                              focusColor: Colors.white,
-                                              
+                                            child: TextField(
+                                              keyboardType: TextInputType.number,
+                                          cursorColor: Colors.white,
+                                          style:const TextStyle(color: Colors.white),
+                                          controller: value.heightController,
+                                          decoration: const InputDecoration(
+                                            border: InputBorder.none,
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Colors.white),
                                             ),
-                                          )
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Colors.white),
+                                            ),
+                                          ),
+                                        )),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                               const SizedBox(
+                                height: 40,
+                              ),
+                              Row(
+                                children: [
+                                   const Text(
+                                    "Weight : ",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18),
+                                  ),
+                                   Expanded(
+                                    flex: 1,
+                                    child: SizedBox(
+                                      height: 70,
+                                      child: Card(
+                                        elevation: 10,
+                                        color: Colors.black,
+                                        child: Center(
+                                          child: Text(
+                                            value.weight,
+                                            style:const TextStyle(
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                         ),
                                       ),
+                                    ),
+                                  ),
+                                 const Spacer(),
+                                 
+                                ],
                               ),
-                            ),
-                        ],
-                       )
-                      ],
-                    ),
-                  ),
-                );
-              },)
-              ),
+                               SizedBox(
+                                    height: 70,
+                                    width: size.width,
+                                    child: GestureDetector(
+                                      onTap: () {
+                                         
+                                      },
+                                      child: const Card(
+                                        elevation: 10,
+                                        color: Colors.black,
+                                        child: Center(
+                                          child: Text(
+                                            "Calculate",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  )
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  )),
             )
           ],
         ),

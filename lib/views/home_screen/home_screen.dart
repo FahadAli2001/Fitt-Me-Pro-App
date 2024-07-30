@@ -8,6 +8,7 @@ import 'package:gym_fyp/views/shoulder_screen/shoulder_screen.dart';
 
 import '../../utils/images/images.dart';
 import '../legs_screen/legs_screen.dart';
+import '../login_screen/login_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -43,6 +44,11 @@ class _HomeScreenState extends State<HomeScreen> {
               child:  GestureDetector(
                 onTap: () {
                   _auth.signOut();
+                    Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (context) => const LoginScreen()),
+          (Route<dynamic> route) => false,
+        );
                 },
                 child:const Icon(Icons.logout,color: Colors.white,))),
             Positioned(

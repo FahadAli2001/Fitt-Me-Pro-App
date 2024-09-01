@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gym_fyp/views/bmi_screen/bmi_screen.dart';
+import 'package:gym_fyp/views/diet_screen/diet_screen.dart';
 import 'package:gym_fyp/views/excs_plan_screen/excs_plan_screen.dart';
 import 'package:gym_fyp/views/home_screen/home_screen.dart';
 
@@ -13,7 +14,7 @@ class NavigationBarScreen extends StatefulWidget {
 class _NavigationBarScreenState extends State<NavigationBarScreen> {
   int index = 0;
 
-  List screen = [const HomeScreen(), const ExcsPlanScreen(), const BmiScreen()];
+  List screen = [const HomeScreen(), const ExcsPlanScreen(),const DietScreen(),const BmiScreen()];
 
   @override
   Widget build(BuildContext context) {
@@ -50,16 +51,27 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
                     Icons.calendar_month_outlined,
                      color:index == 1 ? const Color(0xff211E1E):Colors.white,
                   ))),
+                  GestureDetector(
+                  onTap: () {
+                    index = 2;
+                    setState(() {});
+                  },
+                  child:   CircleAvatar(
+                    backgroundColor: index==2?Colors.white:const Color(0xff211E1E),
+                      child:  Icon(
+                    Icons.dining_sharp,
+                     color:index == 2 ? const Color(0xff211E1E):Colors.white,
+                  ))),
               GestureDetector(
                 onTap: () {
-                  index = 2;
+                  index = 3;
                   setState(() {});
                 },
                 child:   CircleAvatar(
-                  backgroundColor: index==2?Colors.white:const Color(0xff211E1E),
+                  backgroundColor: index==3?Colors.white:const Color(0xff211E1E),
                     child:  Text(
                   "BMI",
-                  style: TextStyle( color:index == 2 ? const Color(0xff211E1E):Colors.white),
+                  style: TextStyle( color:index == 3 ? const Color(0xff211E1E):Colors.white),
                 )),
               ),
             ],

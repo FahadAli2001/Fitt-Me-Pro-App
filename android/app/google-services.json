@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "391082468082",
+    "project_id": "fitmepro-9371a",
+    "storage_bucket": "fitmepro-9371a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:391082468082:android:39e18f28511ef91d9b266b",
+        "android_client_info": {
+          "package_name": "com.fitme.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpbB1qEonJkwa88hcQMbKOnZRnkMqdHJU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gym_fyp/views/bmi_screen/bmi_screen.dart';
 import 'package:gym_fyp/views/excs_plan_screen/excs_plan_screen.dart';
 import 'package:gym_fyp/views/home_screen/home_screen.dart';
 
@@ -12,7 +13,7 @@ class NavigationBarScreen extends StatefulWidget {
 class _NavigationBarScreenState extends State<NavigationBarScreen> {
   int index = 0;
 
-  List screen = [const HomeScreen(), const ExcsPlanScreen(), const Placeholder()];
+  List screen = [const HomeScreen(), const ExcsPlanScreen(), const BmiScreen()];
 
   @override
   Widget build(BuildContext context) {

@@ -1,4 +1,5 @@
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gym_fyp/views/arms_screen/arms_screen.dart';
 import 'package:gym_fyp/views/back_screen/back_screen.dart';
@@ -7,6 +8,7 @@ import 'package:gym_fyp/views/shoulder_screen/shoulder_screen.dart';
 
 import '../../utils/images/images.dart';
 import '../legs_screen/legs_screen.dart';
+import '../login_screen/login_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -16,6 +18,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   List<String> tabsImages = [
     "assets/arms.png",
     "assets/legs.png",
@@ -35,10 +38,19 @@ class _HomeScreenState extends State<HomeScreen> {
           alignment: Alignment.center,
           children: [
             Positioned(top: 0, child: Image.asset(topBg)),
-          const  Positioned(
+             Positioned(
               right: 25,
               top: 50,
-              child:  Icon(Icons.logout,color: Colors.white,)),
+              child:  GestureDetector(
+                onTap: () {
+                  _auth.signOut();
+                    Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (context) => const LoginScreen()),
+          (Route<dynamic> route) => false,
+        );
+                },
+                child:const Icon(Icons.logout,color: Colors.white,))),
             Positioned(
               top: size.height * 0.1,
               child: SizedBox(

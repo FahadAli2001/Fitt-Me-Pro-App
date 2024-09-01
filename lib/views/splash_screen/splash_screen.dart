@@ -1,7 +1,9 @@
 import 'dart:async';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gym_fyp/utils/images/images.dart';
+import 'package:gym_fyp/views/navigation_bar/navigation_bar_screen.dart';
 import 'package:gym_fyp/views/onboarding/onboarding_one.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -16,9 +18,21 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(const Duration(seconds: 2), () {
-      Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const OnboardingOneScreen()));
+      checkStatus();
     });
+  }
+
+  checkStatus(){
+    final FirebaseAuth auth = FirebaseAuth.instance;
+    if (auth.currentUser != null) {
+       Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const NavigationBarScreen()));
+    } else {
+        Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const OnboardingOneScreen()));
+    }
   }
 
   @override

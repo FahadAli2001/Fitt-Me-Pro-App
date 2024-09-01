@@ -59,7 +59,7 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
                   backgroundColor: index==2?Colors.white:const Color(0xff211E1E),
                     child:  Text(
                   "BMI",
-                  style: TextStyle( color:index == 2ch ? const Color(0xff211E1E):Colors.white),
+                  style: TextStyle( color:index == 2 ? const Color(0xff211E1E):Colors.white),
                 )),
               ),
             ],
